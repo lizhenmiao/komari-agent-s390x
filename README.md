@@ -17,14 +17,12 @@
 ```bash
 # 创建目录
 sudo mkdir -p /opt/komari-agent
-# 下载文件并保存为 /opt/komari-agent/komari-agent
+# 下载文件
 sudo curl -L -o /opt/komari-agent/komari-agent https://github.com/lizhenmiao/komari-agent-s390x/releases/download/1.1.34/komari-agent-linux-s390x
-# 给文件添加执行权限
+# 添加执行权限
 sudo chmod +x /opt/komari-agent/komari-agent
-# 进入文件夹
-cd /opt/komari-agent
-# 运行文件
-nohup ./komari-agent -e http://127.0.0.1:8080 -t 1234567890abcdef > komari.log 2>&1 &
+# 进入文件夹并运行文件
+cd /opt/komari-agent && sudo bash -c "nohup ./komari-agent -e http://127.0.0.1:8080 -t 1234567890abcdef > komari.log 2>&1 &"
 ```
 
 ### Docker
