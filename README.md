@@ -15,9 +15,16 @@
 从 [Releases](../../releases) 页面下载：
 
 ```bash
-wget https://github.com/lizhenmiao/komari-agent/releases/latest/download/komari-agent-linux-s390x
-chmod +x komari-agent-linux-s390x
-./komari-agent-linux-s390x
+# 创建目录
+sudo mkdir -p /opt/komari-agent
+# 下载文件并保存为 /opt/komari-agent/komari-agent
+sudo curl -L -o /opt/komari-agent/komari-agent https://github.com/lizhenmiao/komari-agent-s390x/releases/download/1.1.34/komari-agent-linux-s390x
+# 给文件添加执行权限
+sudo chmod +x /opt/komari-agent/komari-agent
+# 进入文件夹
+cd /opt/komari-agent
+# 运行文件
+nohup ./komari-agent -e http://127.0.0.1:8080 -t 1234567890abcdef > komari.log 2>&1 &
 ```
 
 ### Docker
